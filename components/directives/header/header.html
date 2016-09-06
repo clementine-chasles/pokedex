@@ -1,0 +1,39 @@
+<script type="text/ng-template" id="header.html">
+	<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">POKEMON</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#pokedex" data-toggle="pill">Pokedex</a></li>
+            <li><a href="#about" data-toggle="pill">About</a></li>
+            <li><a href="#contact" data-toggle="pill">Contact</a></li>
+            <li><a href="#search" data-toggle="pill">Search</a></li>
+            <li ng-show="isLoggedIn()" class="dropdown">
+              <a class="dropdown-toggle btn-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="user-icon" src="http://www.jeuxmangas.net/IMG/gif/artikodin_pokemon_x_y_3ds.gif"/></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#login" class="btn btn-primary">Login</a></p></li>
+			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#signup" class="btn btn-primary">Sign up</a></p></li>
+			<li ng-show="isLoggedIn()"><p class="navbar-btn"><a ng-click="logout()" class="btn btn-primary">Logout</a></p></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+</script>

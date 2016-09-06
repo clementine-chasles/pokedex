@@ -1,0 +1,27 @@
+{
+  "name": "pokedex",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "clementine chasles"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8",
+    "gulp": "^3.9.1",
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.5.8",
+    "angular-cookies": "^1.5.8"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}

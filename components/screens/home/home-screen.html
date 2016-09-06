@@ -1,0 +1,54 @@
+<script type="text/ng-template" id="home-screen.html">
+    <div screen="home">
+
+        <!-- one way pass values to component -->
+        <!--img="http://www.woodsbagot.com/wp-content/uploads/2013/08/Qantas_Singapore_N21_hero.jpg"-->
+        <hero-item
+                animate="true"
+                imgs="['public/img/lounges/1.jpg', 'public/img/lounges/2.jpg', 'public/img/lounges/3.jpg', 'public/img/lounges/4.jpg']"
+                heading="Discover luxurious lounges <br>with all services included"
+                link-text="Our Lounges"
+                link-url="#/lounges"
+        ></hero-item>
+
+        <block-item
+                img="public/img/lounges/5.jpg"
+        >
+            <content>
+                <h1>World class lounges</h1>
+
+                <p>
+                    EO lounges have been an established destination for first-class and business travellers for over 30 years.
+                </p>
+
+                <p>
+                    Our lounges provide the best areas for passengers to sit-back and relax, with free Wi-Fi, gourmet food and state of the art ergonomics.
+                </p>
+            </content>
+        </block-item>
+
+        <featured-item></featured-item>
+
+        <foot-item>
+            <div class="col-sm-4">
+                <div class="foot-header">EO Lounges</div>
+                <a href="#" class="foot-item">Cloud Nine Lounge</a>
+                <div class="foot-item">Marhaba Lounge</div>
+                <div class="foot-item">Marhaba</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="foot-header">About EO</div>
+                <div class="foot-item">CROWN</div>
+                <div class="foot-item">Aldhabi Longe</div>
+                <div class="foot-item">Dilmun Lounge</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="foot-header">Contact</div>
+                <div class="foot-item">Cedar Lounge</div>
+                <div class="foot-item">Plaza Premium Lounge</div>
+                <div class="foot-item">GVK Lounge</div>
+            </div>
+        </foot-item>
+
+    </div>
+</script>

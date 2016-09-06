@@ -1,0 +1,88 @@
+$body: #212121;
+$primary: #71a725;
+$secondary: #454545;
+
+html, body {
+  font-family: 'Source Sans Pro', sans-serif;
+  overflow-x: hidden;
+  background: rgb(244, 244, 244);
+}
+
+input, textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  min-width: 320px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin: 10px 0 0;
+  padding: 10px 0 0;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 100;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+
+  a {
+    font-weight: 600;
+    color: $primary;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 990px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 991px) {
+    @content;
+  }
+}
+
+.fa {
+  line-height: inherit;
+}
+
+[screen] {
+  padding-top: 50px;
+  transition: .3s;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.user-icon {
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px 0 5px;
+    border-color: #ececec;
+}
+
+.dropdown-toggle {
+	padding: 5px!important;
+}
+
+.btn {
+	margin-left: 5px;
+}

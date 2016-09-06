@@ -1,0 +1,14 @@
+<script type="text/ng-template" id="pokedex-screen.html">
+    <div screen="pokedex">
+
+        pokedex
+		<div class="container">
+			<div class="row">
+				<div ng-repeat="p in pokemons | orderBy : p.id track by $index">
+					<pokemon-list name="{{p.name}}" img="./img/{{p.id}}.png"></pokemon-list>
+				</div>
+			</div>
+		</div>
+
+    </div>
+</script>

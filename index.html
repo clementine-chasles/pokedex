@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <!--<base href="/">-->
+
+    <title>GACA Executive Office</title>
+    <title><%= title %></title>
+    <meta name="description" content=""/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib.css"/>
+    <link rel="stylesheet" href="./app.css"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,100,100italic,200,200italic,300,300italic,600,400italic,600italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,600,400italic,600italic,700italic,700|Catamaran:400,100,200,300,500,600,700,800,900|Lato:400,100,900italic,700italic,900,400italic,700,300italic,300,100italic|Playfair+Display:400,400italic,700,900italic,900,700italic' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+<body data-ng-app="app" class="container">
+
+<header-item></header-item>
+
+<!-- screen contents -->
+<div class="ng-view"></div>
+
+
+<script type="text/ng-template" id="header.html">
+	<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">POKEMON</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#pokedex" data-toggle="pill">Pokedex</a></li>
+            <li><a href="#about" data-toggle="pill">About</a></li>
+            <li><a href="#contact" data-toggle="pill">Contact</a></li>
+            <li><a href="#search" data-toggle="pill">Search</a></li>
+            <li ng-show="isLoggedIn()" class="dropdown">
+              <a class="dropdown-toggle btn-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="user-icon" src="http://www.jeuxmangas.net/IMG/gif/artikodin_pokemon_x_y_3ds.gif"/></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#login" class="btn btn-primary">Login</a></p></li>
+			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#signup" class="btn btn-primary">Sign up</a></p></li>
+			<li ng-show="isLoggedIn()"><p class="navbar-btn"><a ng-click="logout()" class="btn btn-primary">Logout</a></p></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+</script>
+<script type="text/ng-template" id="pokemon-list.html">
+	<div class="col-md-4 col-sm-6 col-xs-6">
+		<img ng-src="{{pokemon.img}}" width="100"/> {{pokemon.name}}
+	</div>
+</script>
+<script type="text/ng-template" id="contact-screen.html">
+    <div screen="contact">
+
+        CONTAAAAAAAAAAAAAACT
+
+    </div>
+</script>
+<script type="text/ng-template" id="home-screen.html">
+    <div screen="home">
+
+        <!-- one way pass values to component -->
+        <!--img="http://www.woodsbagot.com/wp-content/uploads/2013/08/Qantas_Singapore_N21_hero.jpg"-->
+        <hero-item
+                animate="true"
+                imgs="['public/img/lounges/1.jpg', 'public/img/lounges/2.jpg', 'public/img/lounges/3.jpg', 'public/img/lounges/4.jpg']"
+                heading="Discover luxurious lounges <br>with all services included"
+                link-text="Our Lounges"
+                link-url="#/lounges"
+        ></hero-item>
+
+        <block-item
+                img="public/img/lounges/5.jpg"
+        >
+            <content>
+                <h1>World class lounges</h1>
+
+                <p>
+                    EO lounges have been an established destination for first-class and business travellers for over 30 years.
+                </p>
+
+                <p>
+                    Our lounges provide the best areas for passengers to sit-back and relax, with free Wi-Fi, gourmet food and state of the art ergonomics.
+                </p>
+            </content>
+        </block-item>
+
+        <featured-item></featured-item>
+
+        <foot-item>
+            <div class="col-sm-4">
+                <div class="foot-header">EO Lounges</div>
+                <a href="#" class="foot-item">Cloud Nine Lounge</a>
+                <div class="foot-item">Marhaba Lounge</div>
+                <div class="foot-item">Marhaba</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="foot-header">About EO</div>
+                <div class="foot-item">CROWN</div>
+                <div class="foot-item">Aldhabi Longe</div>
+                <div class="foot-item">Dilmun Lounge</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="foot-header">Contact</div>
+                <div class="foot-item">Cedar Lounge</div>
+                <div class="foot-item">Plaza Premium Lounge</div>
+                <div class="foot-item">GVK Lounge</div>
+            </div>
+        </foot-item>
+
+    </div>
+</script>
+<script type="text/ng-template" id="login-screen.html">
+    <div screen="login">
+
+        LOGIN
+		<button ng-click="login()">login</button>
+
+    </div>
+</script>
+<script type="text/ng-template" id="lounges-screen.html">
+    <div screen="lounges">
+
+
+        <hero-item
+                imgs="['http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME']"
+                heading="Our Lounges"
+        ></hero-item>
+
+
+        <!--<div class="container">-->
+            <!--<div style="height: 40px;"></div>-->
+            <!--<h2><a href="">International Lounges &nbsp;  <i class="fa fa-angle-down"></i></a></h2>-->
+        <!--</div>-->
+
+
+        <lounge-list-item types="['International', 'Regional', 'Local']">
+            <lounge-item
+                    img="http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME"
+                    name="My Lounge"
+                    content="hello"
+                    type="International"
+            ></lounge-item>
+
+            <lounge-item
+                    img="http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME"
+                    name="My Regional Lounge 2"
+                    content="hello 2"
+                    type="Regional"
+            ></lounge-item>
+
+            <lounge-item
+                    img="http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME"
+                    name="My Lounge"
+                    content="hello"
+                    type="International"
+            ></lounge-item>
+
+            <lounge-item
+                    img="http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME"
+                    name="My Lounge"
+                    content="hello"
+                    type="International"
+            ></lounge-item>
+
+            <lounge-item
+                    img="http://www.moooi.com/sites/default/files/styles/xtralarge/public/project-image/reception_lounge01.jpg?itok=79kBFgME"
+                    name="My Regional Lounge 2"
+                    content="hello 2"
+                    type="Regional"
+            ></lounge-item>
+        </lounge-list-item>
+
+        <div style="height: 50px;"></div>
+
+        <foot-item></foot-item>
+    </div>
+</script>
+<script type="text/ng-template" id="mission-screen.html">
+    <div screen="mission">
+
+        <!-- one way pass values to component -->
+        <hero-item
+                imgs="['public/img/lounges/airport.jpg']"
+                heading="Mission & Vision"
+        ></hero-item>
+
+        <block-item img="public/img/lounges/12.jpg">
+            <content>
+                <h1>Planned & Executed</h1>
+
+                <p>
+                    The VIP Lounge aims to make the planning and execution of your event as easy and stress free as possible. Our experienced and dedicated events coordinators will guide you through every step of planning your event, from designing your event theme to choosing menus and putting the finishing flourishes to your plans.
+                </p>
+                <p>
+                    Every one of our clients has a distinct vision for their big day and we will work with you combining your dreams with our ideas and years of experience in executing stunning and flawless events.
+                </p>
+            </content>
+        </block-item>
+
+        <foot-item></foot-item>
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="our-services-screen.html">
+    <div screen="our-services">
+
+
+        <hero-item
+                imgs="['public/img/lounges/6.jpg']"
+                heading="Our Services"
+        ></hero-item>
+
+
+        <!--<div class="container">-->
+        <!--<div style="height: 40px;"></div>-->
+        <!--<h2><a href="">International Lounges &nbsp;  <i class="fa fa-angle-down"></i></a></h2>-->
+        <!--</div>-->
+
+
+        <!--<lounge-list-item></lounge-list-item>-->
+
+        <block-item
+                img="public/img/lounges/vip.jpg"
+        >
+            <content>
+                <h1>Priority Immigration Services</h1>
+
+                <p>
+                    EO lounges have been an established destination for first-class and business travellers for over 30 years.
+                </p>
+            </content>
+        </block-item>
+
+        <block-item
+                img="public/img/lounges/mac.jpg"
+                reverse="true"
+        >
+            <content>
+                <h1>WiFi</h1>
+
+                <p>
+                    Our lounges provide the best areas for passengers to sit-back and relax, with free Wi-Fi, gourmet food and state of the art ergonomics.
+                </p>
+            </content>
+        </block-item>
+
+        <block-item
+                img="public/img/lounges/7.jpg"
+        >
+            <content>
+                <h1>Comfort Seating</h1>
+
+                <p>
+                    EO lounges have been an established destination for first-class and business travellers for over 30 years.
+                </p>
+            </content>
+        </block-item>
+
+        <!--<div style="height: 50px;"></div>-->
+
+        <foot-item></foot-item>
+    </div>
+</script>
+<script type="text/ng-template" id="pokedex-screen.html">
+    <div screen="pokedex">
+
+        pokedex
+		<div class="container">
+			<div class="row">
+				<div ng-repeat="p in pokemons | orderBy : p.id track by $index">
+					<pokemon-list name="{{p.name}}" img="./img/{{p.id}}.png"></pokemon-list>
+				</div>
+			</div>
+		</div>
+
+    </div>
+</script>
+<script src="./lib.js"></script>
+<script src="./app.js"></script>
+
+</body>
+</html>
