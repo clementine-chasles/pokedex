@@ -19,18 +19,13 @@
             <li ng-show="isLoggedIn()" class="dropdown">
               <a class="dropdown-toggle btn-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="user-icon" src="http://www.jeuxmangas.net/IMG/gif/artikodin_pokemon_x_y_3ds.gif"/></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#mypokedex">My pokedex</a></li>
+                <li><a ng-click="logout()">Log out</a></li>
               </ul>
             </li>
 			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#login" class="btn btn-primary">Login</a></p></li>
 			<li ng-hide="isLoggedIn()"><p class="navbar-btn"><a href="#signup" class="btn btn-primary">Sign up</a></p></li>
-			<li ng-show="isLoggedIn()"><p class="navbar-btn"><a ng-click="logout()" class="btn btn-primary">Logout</a></p></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
