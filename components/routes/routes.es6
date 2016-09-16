@@ -13,6 +13,10 @@ app.config(['$routeProvider',
         templateUrl: 'login-screen.html',
 		controller: 'LoginScreen'
       }).
+      when('/profile', {
+        templateUrl: 'profile-screen.html',
+		controller: 'ProfileScreen'
+      }).
       when('/about', {
         templateUrl: 'contact-screen.html',
 		controller: 'ContactScreen'

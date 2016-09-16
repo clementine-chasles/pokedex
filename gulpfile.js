@@ -37,7 +37,7 @@ gulp.task('app-js', function() {
 gulp.task('gen-css', () =>
     gulp.src([
             'components/global/global.scss',
-            'src/components/**/*.scss'
+            'components/**/*.scss'
         ])
 		.pipe(wiredep())
         .pipe(concat('app.css'))

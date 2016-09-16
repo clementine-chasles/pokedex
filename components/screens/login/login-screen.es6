@@ -1,4 +1,4 @@
-app.controller('LoginScreen', ($scope, $cookies, $http, Helper) => {
+app.controller('LoginScreen', ($scope, $cookies, $http, $location, Helper) => {
 
     var init = () => {
         //$timeout(() => $element.find('[screen]').addClass('active'), 50);
@@ -11,6 +11,7 @@ app.controller('LoginScreen', ($scope, $cookies, $http, Helper) => {
 
 			$cookies.put('token', 'rhaerhreh');
 			console.log("cookie : " + $cookies.get('token'));
+			$location.path('/');
 			
 		} else {
 			console("already logged in");
