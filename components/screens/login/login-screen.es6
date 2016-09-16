@@ -1,4 +1,4 @@
-app.controller('LoginScreen', ($scope, $cookies, Helper) => {
+app.controller('LoginScreen', ($scope, $cookies, $http, Helper) => {
 
     var init = () => {
         //$timeout(() => $element.find('[screen]').addClass('active'), 50);
@@ -6,6 +6,7 @@ app.controller('LoginScreen', ($scope, $cookies, Helper) => {
 	
 	var login = () => {
 		console.log("login !!!! " + Helper.isLoggedIn());
+		console.log("email : " + $scope.email);
 		if(!Helper.isLoggedIn()) {
 
 			$cookies.put('token', 'rhaerhreh');
@@ -21,6 +22,3 @@ app.controller('LoginScreen', ($scope, $cookies, Helper) => {
 	$scope.login = login;
 	
 });
-
-
-

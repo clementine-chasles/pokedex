@@ -1,8 +1,17 @@
 <script type="text/ng-template" id="login-screen.html">
     <div screen="login">
-
-        LOGIN
-		<button ng-click="login()">login</button>
+	
+		<form ng-submit="login()">
+		  <div class="form-group">
+			<label for="inputEmail">Email address</label>
+			<input type="email" class="form-control" id="inputEmail" ng-model="email" placeholder="Enter email" required>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword">Password</label>
+			<input type="password" class="form-control" id="inputPassword" ng-model="password" ng-minlength="6" ng-maxlength="30" placeholder="Password" required>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Login</button>
+		</form>
 
     </div>
 </script>
